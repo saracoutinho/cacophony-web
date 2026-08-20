@@ -97,11 +97,25 @@ const userProjectSettings = computed<ApiProjectUserSettings>(() => {
 });
 const weeklyDigestEmails = ref<boolean>(false);
 const dailyDigestEmails = ref<boolean>(false);
+const dailyDigestEmailsOptionsChecked = ref(["thermal", "audio", "devices"]);
+const dailyDigestEmailsOptions = [
+  { value: "thermal", label: "Thermal activity" },
+  { value: "audio", label: "Audio detections" },
+  { value: "devices", label: "Devices battery" },
+];
+const weeklyDigestEmailsOptionsChecked = ref(["thermal", "audio", "devices"]);
+const weeklyDigestEmailsOptions = [
+  { value: "thermal", label: "Thermal activity" },
+  { value: "audio", label: "Audio detections" },
+  { value: "devices", label: "Devices battery" },
+];
+
 const stoppedDeviceEmails = ref<boolean>(false);
 const savingDailyDigestSettings = ref<boolean>(false);
 const savingWeeklyDigestSettings = ref<boolean>(false);
 const savingStoppedDeviceSettings = ref<boolean>(false);
 const initialised = ref<boolean>(false);
+
 onBeforeMount(() => {
   weeklyDigestEmails.value =
     userProjectSettings.value.notificationPreferences?.weeklyDigest || false;
@@ -423,20 +437,63 @@ const alertItems = computed<AlertItem[]>(() => {
     <div class="col-lg-9">
       <section-card>
         <template #header-title> Project activity email preferences </template>
-        <b-form-checkbox switch v-model="dailyDigestEmails"
-          >I want to receive a daily activity digest<b-spinner
+
+        <!--        <h5 class="h5 mb-3">Daily activity digest</h5>-->
+        <b-form-checkbox
+          switch
+          size="md"
+          v-model="dailyDigestEmails"
+          class="mb-2"
+          >Send daily activity digest<span v-if="dailyDigestEmails">
+            for:
+          </span>
+          <b-spinner
             class="ms-1"
             v-if="savingDailyDigestSettings"
             variant="secondary"
             small
         /></b-form-checkbox>
-        <b-form-checkbox switch v-model="weeklyDigestEmails"
-          >I want to receive a weekly activity digest<b-spinner
+
+        <fieldset
+          v-if="dailyDigestEmails"
+          class="ps-3 mb-3 border border-light-subtle border-start border-top-0 border-bottom-0 border-end-0"
+        >
+          <b-form-checkbox
+            v-model="dailyDigestEmailsOptionsChecked"
+            v-for="option in dailyDigestEmailsOptions"
+            :key="option.value"
+            :value="option.value"
+            name="daily-emails"
+          >
+            {{ option.label }}
+          </b-form-checkbox>
+        </fieldset>
+
+        <!--        <h5 class="h5 mb-3 mt-4">Weekly activity digest</h5>-->
+        <b-form-checkbox switch size="md" v-model="weeklyDigestEmails"
+          >Send weekly activity digest<span v-if="weeklyDigestEmails">
+            for:
+          </span>
+          <b-spinner
             class="ms-1"
             v-if="savingWeeklyDigestSettings"
             variant="secondary"
             small
         /></b-form-checkbox>
+        <fieldset
+          v-if="weeklyDigestEmails"
+          class="ps-3 border border-light-subtle border-start border-top-0 border-bottom-0 border-end-0"
+        >
+          <b-form-checkbox
+            v-model="weeklyDigestEmailsOptionsChecked"
+            v-for="option in weeklyDigestEmailsOptions"
+            :key="option.value"
+            :value="option.value"
+            name="weekly-emails"
+          >
+            {{ option.label }}
+          </b-form-checkbox>
+        </fieldset>
       </section-card>
     </div>
   </div>
