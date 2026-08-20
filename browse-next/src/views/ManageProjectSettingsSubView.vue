@@ -264,7 +264,6 @@ const pendingTagIsValid = computed<boolean>(() => {
     @ok="() => addPendingIgnoredTag('camera')"
     :ok-disabled="!pendingTagIsValid"
     ok-title="Add ignored tag"
-    ok-variant="secondary"
     cancel-variant="outline-secondary"
     centered
   >
