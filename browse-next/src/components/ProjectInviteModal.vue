@@ -70,6 +70,7 @@ const permissions = ref<string[]>([]);
   <b-modal
     centered
     id="invite-someone-modal"
+    cancel-variant="outline-secondary"
     @ok="invitePendingUser"
     ok-title="Send invitation"
     title="Invite someone"

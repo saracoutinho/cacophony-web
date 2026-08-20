@@ -479,6 +479,7 @@ const permissionsOptions = computed(() => [
     centered
     title="Edit user permissions"
     ok-title="Update permissions"
+    cancel-variant="outline-secondary"
     @hidden="permissions = []"
     @ok="updateUserPermissions"
   >

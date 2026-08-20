@@ -526,6 +526,7 @@ const alertItems = computed<AlertItem[]>(() => {
     @ok="saveAlert"
     title="Create email alert"
     ok-title="Save alert"
+    cancel-variant="outline-secondary"
     :ok-disabled="!formIsValid"
     @cancel="resetFormFields"
   >
