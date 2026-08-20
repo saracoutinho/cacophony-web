@@ -740,8 +740,9 @@ const iconForPowerStatus = (powerStatus: DeviceStatus): IconsProp => {
         :default-sort="'lastSeen'"
         compact
         standalone
-        :max-card-width="768"
+        :max-card-width="992"
         class="mb-3"
+        :card-or-row-clickable="true"
       >
         <template #deviceName="{ cell, row }">
           <div class="d-flex align-items-center" :data-cy="`device ${cell}`">
@@ -771,7 +772,9 @@ const iconForPowerStatus = (powerStatus: DeviceStatus): IconsProp => {
           <device-battery-level :device="cell" />
         </template>
         <template #location="{ cell }">
-          <location-name :name="cell" />
+          <div class="d-flex">
+            <location-name :name="cell" />
+          </div>
         </template>
         <template #_deleteAction="{ cell }">
           <div
