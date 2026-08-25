@@ -5,7 +5,7 @@ import type { BatteryInfoEvent, LoadedResource } from "@apiClient/types.ts";
 import { ClientApi } from "@/api";
 import { resourceFailedLoading, resourceIsLoading } from "@/helpers/utils.ts";
 import { BSpinner } from "bootstrap-vue-next";
-import { MaterialSymbol } from "@dbetka/vue-material-symbols";
+import MaterialSymbol from "@/components/MaterialSymbol.vue";
 
 const props = withDefaults(
   defineProps<{

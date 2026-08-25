@@ -27,7 +27,7 @@ import type {
 } from "@typedefs/api/device";
 import DeviceBatteryLevel from "@/components/DeviceBatteryLevel.vue";
 import { resourceIsLoading } from "@/helpers/utils.ts";
-import { MaterialSymbol } from "@dbetka/vue-material-symbols";
+import MaterialSymbol from "@/components/MaterialSymbol.vue";
 import { BButton, BPopover, BSpinner } from "bootstrap-vue-next";
 import LocationName from "@/components/LocationName.vue";
 

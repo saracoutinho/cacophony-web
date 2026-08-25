@@ -5,7 +5,7 @@ import { useRoute } from "vue-router";
 import type { ApiRecordingResponse } from "@typedefs/api/recording";
 import type { LoadedResource } from "@apiClient/types.ts";
 import { BNav, BNavItem, BSpinner } from "bootstrap-vue-next";
-import { MaterialSymbol } from "@dbetka/vue-material-symbols";
+import MaterialSymbol from "@/components/MaterialSymbol.vue";
 import { useMediaQuery } from "@vueuse/core";
 const route = useRoute();
 
