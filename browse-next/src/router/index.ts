@@ -128,6 +128,36 @@ const someLocationsHaveThermalRecordings = computed<boolean>(() => {
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    const maxAttempts = 20; // 1000ms
+    const goToAnchor = (resolve: (val: unknown) => void, attempts: number) => {
+      setTimeout(() => {
+        if (to.hash && document.querySelector(to.hash)) {
+          document.querySelector(to.hash)?.scrollIntoView(true);
+          // NOTE: Contrary to what is stated by vue-router docs, this doesn't seem to actually do anything,
+          //  so we'll handle the actual scrolling ourselves.
+          resolve({
+            el: document.querySelector(to.hash),
+          });
+        } else if (attempts < maxAttempts) {
+          goToAnchor(resolve, attempts + 1);
+        } else {
+          resolve({
+            el: null,
+          });
+        }
+      }, 50);
+    };
+    if (to.hash) {
+      return new Promise((resolve) => {
+        goToAnchor(resolve as (val: unknown) => void, 0);
+      });
+    } else if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0 };
+    }
+  },
   routes: [
     {
       path: "/setup",
@@ -364,10 +394,10 @@ const router = createRouter({
                     import("@/components/DeviceRecordingOptions.vue"),
                 },
                 {
-                  path: "trap-setup",
-                  name: "trap-setup",
+                  path: "trap-settings",
+                  name: "trap-settings",
                   component: () =>
-                    import("@/components/DeviceTrapActionsSetup.vue"),
+                    import("@/components/DeviceTrapSettings.vue"),
                 },
                 {
                   path: "reference",

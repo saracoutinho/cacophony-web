@@ -96,7 +96,7 @@ const isDesktopView = useMediaQuery("(min-width: 992px)");
           <b-nav-item
             :to="{ name: 'recording-options' }"
             :active="activeTabPath.includes('recording-options')"
-            :link-class="{ 'py-2': isMobileView }"
+            :link-class="{ 'py-2 px-1': isMobileView }"
           >
             <span
               class="d-flex"
@@ -104,7 +104,11 @@ const isDesktopView = useMediaQuery("(min-width: 992px)");
                 'justify-content-center align-items-center': !isDesktopView,
               }"
             >
-              <material-symbol name="tune" class="me-2" />
+              <material-symbol
+                name="tune"
+                class="me-2"
+                :size="isMobileView ? '1.25rem' : '1.5rem'"
+              />
               <span class="d-md-none">Options</span>
               <span class="d-none d-md-inline">Recording options</span>
             </span>
@@ -112,7 +116,7 @@ const isDesktopView = useMediaQuery("(min-width: 992px)");
           <b-nav-item
             :to="{ name: 'reference-photo' }"
             :active="activeTabPath.includes('reference-photo')"
-            :link-class="{ 'py-2': isMobileView }"
+            :link-class="{ 'py-2 px-1': isMobileView }"
             data-cy="reference photo"
           >
             <span
@@ -121,7 +125,11 @@ const isDesktopView = useMediaQuery("(min-width: 992px)");
                 'justify-content-center align-items-center': !isDesktopView,
               }"
             >
-              <material-symbol name="compare" class="me-2" />
+              <material-symbol
+                name="compare"
+                class="me-2"
+                :size="isMobileView ? '1.25rem' : '1.5rem'"
+              />
               <span class="d-md-none">Photo</span>
               <span class="d-none d-md-inline">Reference photo</span>
             </span>
@@ -129,7 +137,7 @@ const isDesktopView = useMediaQuery("(min-width: 992px)");
           <b-nav-item
             :to="{ name: 'define-masking' }"
             :active="activeTabPath.includes('define-masking')"
-            :link-class="{ 'py-2': isMobileView }"
+            :link-class="{ 'py-2 px-1': isMobileView }"
           >
             <span
               class="d-flex"
@@ -137,16 +145,20 @@ const isDesktopView = useMediaQuery("(min-width: 992px)");
                 'justify-content-center align-items-center': !isDesktopView,
               }"
             >
-              <material-symbol name="polyline" class="me-2" />
+              <material-symbol
+                name="polyline"
+                class="me-2"
+                :size="isMobileView ? '1.25rem' : '1.5rem'"
+              />
               <span class="d-md-none">Masks</span>
               <span class="d-none d-md-inline"> Mask regions</span>
             </span>
           </b-nav-item>
           <b-nav-item
-            :to="{ name: 'trap-setup' }"
-            :active="activeTabPath.includes('trap-setup')"
-            :link-class="{ 'py-2': isMobileView }"
-            data-cy="trap setup"
+            :to="{ name: 'trap-settings' }"
+            :active="activeTabPath.includes('trap-settings')"
+            :link-class="{ 'py-2 px-1': isMobileView }"
+            data-cy="trap settings"
           >
             <span
               class="d-flex"
@@ -154,9 +166,13 @@ const isDesktopView = useMediaQuery("(min-width: 992px)");
                 'justify-content-center align-items-center': !isDesktopView,
               }"
             >
-              <material-symbol name="tune" class="me-2" />
+              <material-symbol
+                name="tune"
+                class="me-2"
+                :size="isMobileView ? '1.25rem' : '1.5rem'"
+              />
               <span class="d-md-none">Trap</span>
-              <span class="d-none d-md-inline">Trap setup</span>
+              <span class="d-none d-md-inline">Trap settings</span>
             </span>
           </b-nav-item>
         </b-nav>
