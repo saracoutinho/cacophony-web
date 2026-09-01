@@ -7,6 +7,7 @@ import type { LoadedResource } from "@apiClient/types.ts";
 import { BNav, BNavItem, BSpinner } from "bootstrap-vue-next";
 import { MaterialSymbol } from "@dbetka/vue-material-symbols";
 import { useMediaQuery } from "@vueuse/core";
+import IconTrapSettings from "@/components/icons/iconTrapSettings.vue";
 const route = useRoute();
 
 const emit = defineEmits<{
@@ -166,11 +167,7 @@ const isDesktopView = useMediaQuery("(min-width: 992px)");
                 'justify-content-center align-items-center': !isDesktopView,
               }"
             >
-              <material-symbol
-                name="tune"
-                class="me-2"
-                :size="isMobileView ? '1.25rem' : '1.5rem'"
-              />
+              <icon-trap-settings class="me-2" :style="isMobileView ? 'width: 1.25rem' : 'width: 1.5rem'" />
               <span class="d-md-none">Trap</span>
               <span class="d-none d-md-inline">Trap settings</span>
             </span>

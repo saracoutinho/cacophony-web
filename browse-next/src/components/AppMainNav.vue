@@ -39,6 +39,8 @@ import {
   locationHasAudioRecordings,
   locationHasThermalRecordings,
 } from "@/utils.ts";
+import IconTrap from "@/components/icons/iconTrap.vue";
+import IconTrapFilled from "@/components/icons/iconTrapFilled.vue";
 
 const fallibleCurrentSelectedProject = inject(
   currentSelectedProject,
@@ -327,7 +329,7 @@ onMounted(() => {
       <li class="nav-item w-100">
         <router-link
           :to="{
-            name: 'trap-actions',
+            name: 'traps',
             params: {
               projectName: urlNormalisedCurrentProjectName,
             },
@@ -339,7 +341,7 @@ onMounted(() => {
           data-bs-original-title="Locations"
         >
           <span class="nav-icon-wrapper d-flex">
-            <material-symbol name="pin_drop" />
+            <icon-trap style="width: 1.5rem" />
             <svg
               class="warning-icon"
               width="12"
@@ -353,7 +355,7 @@ onMounted(() => {
               />
             </svg>
           </span>
-          <span class="nav-text ms-3">Trap actions</span>
+          <span class="nav-text ms-3">Traps</span>
         </router-link>
       </li>
       <!--        NOTE: remove Report until we know what to do with it. -->
