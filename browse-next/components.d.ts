@@ -15,7 +15,6 @@ declare module 'vue' {
     ActivitySearchParameters: typeof import('./src/components/ActivitySearchParameters.vue')['default']
     AppMainNav: typeof import('./src/components/AppMainNav.vue')['default']
     BFormCheckboxGroup: typeof import('bootstrap-vue-next/components/BFormCheckbox')['BFormCheckboxGroup']
-    BimodalSwitch: typeof import('./src/components/BimodalSwitch.vue')['default']
     BlockingUserActionRequiredModal: typeof import('./src/components/BlockingUserActionRequiredModal.vue')['default']
     CardTable: typeof import('./src/components/CardTable.vue')['default']
     CptvPlayer: typeof import('./src/components/cptv-player/CptvPlayer.vue')['default']
