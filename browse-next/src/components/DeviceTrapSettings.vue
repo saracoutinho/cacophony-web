@@ -427,7 +427,7 @@ const protectedTableItems = computed<CardTableRows<string>>(() => {
       v-if="trapIsEnabled && trapMode === 'wait'"
       class="mb-3 mb-lg-4"
     >
-      <template #header-title>Protected species</template>
+      <template #header-title>Non-targets</template>
       <template #header-action>
         <div class="d-inline-flex gap-2 ms-2">
           <button
@@ -445,7 +445,7 @@ const protectedTableItems = computed<CardTableRows<string>>(() => {
       >
         <div class="text-body-tertiary text-center d-flex flex-column">
           <material-symbol
-            name="encrypted_off"
+            name="volunteer_activism"
             size="2.4rem"
             grade="thin"
             class="mb-2"
@@ -507,23 +507,18 @@ const protectedTableItems = computed<CardTableRows<string>>(() => {
           >already in protected list</b-badge
         >
       </b-form-checkbox>
-
-      <!--      <b-form-checkbox-group
-        v-model="captureTargetTags"
-        :options="trapTags"
-        switches
-        stacked
-      />-->
     </b-modal>
 
     <b-modal
       v-model="showProtectedModal"
-      title="Protected species"
+      title="Non-targets"
       ok-title="Save"
       cancel-variant="outline-secondary"
       centered
     >
-      <p class="mb-3">Select targets to trigger the trap.</p>
+      <p class="mb-3">
+        Select species that will disable the trap if detected by the AI.
+      </p>
 
       <b-form-checkbox
         v-for="tag in trapTags"
@@ -542,13 +537,6 @@ const protectedTableItems = computed<CardTableRows<string>>(() => {
           >already in capture target list</b-badge
         >
       </b-form-checkbox>
-
-      <!--      <b-form-checkbox-group
-        v-model="captureTargetTags"
-        :options="trapTags"
-        switches
-        stacked
-      />-->
     </b-modal>
   </div>
 </template>
