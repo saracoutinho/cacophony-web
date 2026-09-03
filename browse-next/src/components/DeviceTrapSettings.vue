@@ -66,6 +66,7 @@ const protectedTableItems = computed<CardTableRows<string>>(() => {
 
 <template>
   <div class="d-flex flex-column flex-fill">
+    <!-- TODO: add loading spinner -->
     <!--    <div
       v-if="settingsLoading"
       class="d-flex flex-fill align-items-center justify-content-center"

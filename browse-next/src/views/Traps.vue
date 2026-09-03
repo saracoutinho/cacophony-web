@@ -9,14 +9,10 @@ import {
   BSpinner,
 } from "bootstrap-vue-next";
 import MapWithPoints from "@/components/MapWithPoints.vue";
-import IconTrap from "@/components/icons/iconTrap.vue";
 import { computed, ref } from "vue";
 import { useWindowSize } from "@vueuse/core";
-import type { GenericCardTableValue } from "@/components/CardTableTypes.ts";
-import type { ApiStationResponse as ApiLocationResponse } from "@typedefs/api/station";
 import { MaterialSymbol } from "@dbetka/vue-material-symbols";
 import CardTable from "@/components/CardTable.vue";
-import RenameableLocationName from "@/components/RenameableLocationName.vue";
 import DeviceName from "@/components/DeviceName.vue";
 import LocationName from "@/components/LocationName.vue";
 
